@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Housing Prices in the United States Over the Years</title>
+</head>
+
+<body>
+  <h1>Housing Prices in the United States Over the Years</h1>
+  <svg class="price-chart"></svg>
+  <svg class="chart"></svg>
+
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" language="javascript" src="./data.js"></script>
+  <script type="text/javascript" language="javascript">
+    var data = priceHistory.history;
+
+    var barHeight = 20;
+
+    var max = d3.max(data, function(d) { return d.MedianPrice; });
+
+    var x = d3.scale.linear()
+    .domain([0, max])
+    .range([0, max]);
+
+    var chart = d3.select(".price-chart")
+        .attr("width", x(max) / 300 + 180)
+        .attr("height", barHeight * data.length);
+
+    var bar = chart.selectAll("g")
+        .data(data)
+        .enter().append("g")
+        .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+
+    bar.append("rect")
+        .attr("width", function(d){ return x(d.MedianPrice) / 300; })
+        .attr("height", barHeight - 1);
+
+    bar.append("text")
+        .attr("x", function(d) { return x(d.MedianPrice) / 300 + 10; })
+        .attr("y", barHeight / 2)
+        .attr("dy", ".35em")
+        .text(function(d) { return "" + d.Month + " " + d.Year });
+
+    bar.append("text")
+        .attr("x", function(d) { return x(d.MedianPrice) / 300 + 100; })
+        .attr("y", barHeight / 2)
+        .attr("dy", ".35em")
+        .text(function(d) { return "(" + d.MedianPrice + ")" });
+  </script>
+</body>
+</html>
