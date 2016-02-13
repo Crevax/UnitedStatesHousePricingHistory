@@ -14,6 +14,17 @@
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <script type="text/javascript" language="javascript" src="./data.js"></script>
   <script type="text/javascript" language="javascript">
+    var medianPriceForYear = function(yearData) {
+      var monthCount = 0;
+      var total = 0;
+      yearData.months.forEach(function(month, i) {
+        monthCount++;
+        total += month.medianPrice;
+      });
+
+      return total / monthCount;
+    }
+
     var data = priceHistory.history;
 
     var barHeight = 20;
