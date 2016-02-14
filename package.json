@@ -1,0 +1,14 @@
+{
+  "name": "crevax.data.us-house-pricing-hsitory",
+  "description": "front end task runner for bundling and building the US House Pricing History UI",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "webpack": "^1.12.10",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "scripts": {
+    "dev-server": "webpack-dev-server --inline --hot --progress --colors --content-base dist/",
+    "dev": "webpack --progress --colors --watch"
+  }
+} 
