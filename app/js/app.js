@@ -1,3 +1,5 @@
+var d3 = require('d3');
+
 var medianPriceForYear = function(yearData) {
   var monthCount = 0;
   var total = 0;
