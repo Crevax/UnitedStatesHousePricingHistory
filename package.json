@@ -2,9 +2,13 @@
   "name": "crevax.data.us-house-pricing-hsitory",
   "description": "front end task runner for bundling and building the US House Pricing History UI",
   "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "d3": "^3.5.15"
   },
   "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
     "webpack": "^1.12.10",
     "webpack-dev-server": "^1.14.0"
   },

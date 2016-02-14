@@ -10,6 +10,18 @@ module.exports = {
     publicPath: '/js/',
     filename: 'app.js'
   },
+  module: {
+    loaders: [
+      {
+        loader: 'babel',
+        exclude: '/node_modules/',
+        query: {
+          cacheDirectory: true,
+          presets: ['es2015']
+        }
+      }
+    ]
+  },
   resolve: {
     extensions: ['', '.js']
   },
